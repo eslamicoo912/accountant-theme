@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cp_palette_primary: 'var(--palette-primary)',
+            cp_palette_secondary: 'var(--palette-secondary)',
+            cp_background_default: 'var(--background-default)',
+            cp_background_paper: 'var(--background-paper)',
+            cp_text_primary: 'var(--text-primary)',
+            cp_text_secondary: 'var(--text-secondary)',
+            cp_text_tertiary: 'var(--text-tertiary)',
+            cp_borders_main: 'var(--borders-main)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style id="dynamic-color-styles">
+    @layer base {
+      :root {
+        --palette-primary: #0F172A;
+        --palette-secondary: #0D9488;
+        --background-default: #F8FAFC;
+        --background-paper: #FFFFFF;
+        --text-primary: #0F172A;
+        --text-secondary: #475569;
+        --text-tertiary: #94A3B8;
+        --borders-main: #E2E8F0;
+      }
+
+      :dir(ltr) {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      }
+
+      :dir(rtl) {
+        font-family: 'Changa', system-ui, sans-serif;
+      }
+    }
+
+    .bg-cp_palette_primary { background-color: var(--palette-primary); }
+    .bg-cp_palette_secondary { background-color: var(--palette-secondary); }
+    .bg-cp_background_default { background-color: var(--background-default); }
+    .bg-cp_background_paper { background-color: var(--background-paper); }
+
+    .text-cp_text_primary { color: var(--text-primary); }
+    .text-cp_text_secondary { color: var(--text-secondary); }
+    .text-cp_text_tertiary { color: var(--text-tertiary); }
+    .text-cp_palette_primary { color: var(--palette-primary); }
+    .text-cp_palette_secondary { color: var(--palette-secondary); }
+
+    .border-cp_borders_main { border-color: var(--borders-main); }
+    .border-cp_palette_primary { border-color: var(--palette-primary); }
+    .border-cp_palette_secondary { border-color: var(--palette-secondary); }
+
+    .hover\:bg-cp_palette_primary:hover { background-color: var(--palette-primary); }
+    .hover\:bg-cp_palette_secondary:hover { background-color: var(--palette-secondary); }
+    .hover\:bg-cp_background_default:hover { background-color: var(--background-default); }
+    .hover\:bg-cp_background_paper:hover { background-color: var(--background-paper); }
+
+    .hover\:text-cp_text_primary:hover { color: var(--text-primary); }
+    .hover\:text-cp_text_secondary:hover { color: var(--text-secondary); }
+    .hover\:text-cp_text_tertiary:hover { color: var(--text-tertiary); }
+    .hover\:text-cp_palette_primary:hover { color: var(--palette-primary); }
+
+    .hover\:border-cp_palette_primary:hover { border-color: var(--palette-primary); }
+    .hover\:border-cp_palette_secondary:hover { border-color: var(--palette-secondary); }
+    .hover\:border-cp_borders_main:hover { border-color: var(--borders-main); }
+
+    .focus\:border-cp_palette_primary:focus { border-color: var(--palette-primary); }
+  </style>
+</head>
+
+<body id="i3uo">
+  <header>
+    <nav class="bg-cp_background_paper border-b-4 border-cp_palette_primary fixed w-full top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2"><div class="bg-cp_palette_primary p-2">
+          <img alt="PULSE Logo" src="https://picsum.photos/seed/pulse-logo-b/32/32" class="h-8 w-8"/>
+          </div><span class="text-2xl font-black text-cp_palette_primary tracking-tight">
+          PULSE
+          </span></a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html" class="bg-cp_palette_primary text-cp_text_tertiary px-5 py-2 font-bold text-sm hover:bg-cp_palette_secondary hover:text-cp_text_primary"><span>
+            HOME
+            </span></a>
+          <a href="about.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
+            ABOUT
+            </span></a>
+          <a href="portfolio.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
+            WORK
+            </span></a>
+          <a href="services.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
+            SERVICES
+            </span></a>
+          <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-cp_palette_secondary hover:bg-cp_background_paper"><span>
+            GET
+            A QUOTE
+            </span></a>
+        </div>
+        <button id="mobile-menu-btn-2" class="md:hidden border-2 border-cp_palette_primary p-2"><img alt="Menu" src="https://picsum.photos/seed/menu-b/28/28" class="h-7 w-7"/></button>
+      </div>
+      <div id="mobile-menu-2" class="hidden md:hidden border-t-2 border-cp_palette_primary">
+        <div class="flex flex-col">
+          <a href="index.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main bg-cp_palette_primary text-cp_text_tertiary"><span>
+            HOME
+            </span></a>
+          <a href="about.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
+            ABOUT
+            </span></a>
+          <a href="portfolio.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
+            WORK
+            </span></a>
+          <a href="services.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
+            SERVICES
+            </span></a>
+          <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-6 py-3 font-bold text-sm"><span>
+            GET A
+            QUOTE
+            </span></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <!-- Hero - Split Screen Brutalist -->
+    <section class="pt-20">
+      <div class="grid grid-cols-1 lg:grid-cols-5 min-h-[85vh]">
+        <div data-animate="fade-right" id="im2aj-2" class="lg:col-span-3 bg-cp_palette_primary p-8 md:p-16 flex flex-col justify-center">
+          <div class="border-4 border-cp_palette_secondary p-6 md:p-10">
+            <span class="text-cp_palette_secondary font-black text-sm tracking-widest block mb-4">
+              //
+              AWARD-WINNING AGENCY
+            </span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-cp_text_tertiary leading-none">
+              WE
+              MAKE
+              <br/>
+              BRANDS
+              <br/>
+              <span class="text-cp_palette_secondary">
+                GO VIRAL
+              </span>
+            </h1>
+            <p class="text-cp_text_tertiary mt-6 text-lg opacity-80 max-w-lg">
+              Data-driven marketing
+              strategies
+              and scroll-stopping social media ads that turn audiences into loyal customers. We don't just
+              run
+              campaigns — we create movements.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-8 py-4 font-black border-2 border-cp_palette_secondary hover:bg-cp_background_paper"><span>
+                START
+                YOUR CAMPAIGN
+                </span></a>
+              <a href="portfolio.html" class="border-2 border-cp_text_tertiary text-cp_text_tertiary px-8 py-4 font-black hover:bg-cp_text_tertiary hover:text-cp_palette_primary"><span>
+                SEE
+                OUR WORK
+                </span></a>
+            </div>
+          </div>
+        </div>
+        <div data-animate="fade-left" id="iawzb-2" class="lg:col-span-2 border-l-0 lg:border-l-4 border-cp_palette_primary relative">
+          <img alt="Marketing Campaign" src="https://picsum.photos/seed/brut-hero/700/900" class="w-full h-full object-cover"/>
+          <div class="absolute bottom-0 left-0 right-0 bg-cp_palette_secondary p-4">
+            <span class="text-cp_text_primary font-black text-sm">
+              350+ CAMPAIGNS LAUNCHED
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Strip - Horizontal Blocks -->
+    <section class="bg-cp_background_paper border-y-4 border-cp_palette_primary">
+      <div class="max-w-7xl mx-auto">
+        <div data-stagger-group="scale-up" class="grid grid-cols-2 lg:grid-cols-4">
+          <!-- Block 1 -->
+          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
+            <img alt="Social Ads" src="https://picsum.photos/seed/brut-s1/48/48" class="h-12 w-12 mb-4"/>
+            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
+              <span>
+                SOCIAL
+                MEDIA ADS
+              </span>
+            </h3>
+            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
+              Facebook, Instagram, TikTok, LinkedIn — we conquer every platform.
+            </p>
+          </div>
+          <!-- Block 2 -->
+          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
+            <img alt="Content" src="https://picsum.photos/seed/brut-s2/48/48" class="h-12 w-12 mb-4"/>
+            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
+              <span>
+                CONTENT
+                STRATEGY
+              </span>
+            </h3>
+            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
+              Content plans that align with your brand and drive engagement.
+            </p>
+          </div>
+          <!-- Block 3 -->
+          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
+            <img alt="Branding" src="https://picsum.photos/seed/brut-s3/48/48" class="h-12 w-12 mb-4"/>
+            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
+              <span>
+                BRAND
+                IDENTITY
+              </span>
+            </h3>
+            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
+              Memorable identities that command attention in crowded feeds.
+            </p>
+          </div>
+          <!-- Block 4 -->
+          <div data-stagger-item="" class="p-8 group hover:bg-cp_palette_primary transition-colors cursor-pointer">
+            <img alt="Analytics" src="https://picsum.photos/seed/brut-s4/48/48" class="h-12 w-12 mb-4"/>
+            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
+              <span>
+                ANALYTICS
+              </span>
+            </h3>
+            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
+              Data-driven insights that optimize every dollar of ad spend.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Campaign Results - Asymmetric Grid -->
+    <section id="idezlh-2" class="bg-cp_background_default py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div data-animate="fade-up" class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+          <div>
+            <span class="text-cp_palette_secondary font-black text-sm tracking-widest">
+              // FEATURED
+              WORK
+            </span>
+            <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary mt-2">
+              CAMPAIGNS THAT
+              <br/>
+              BREAK
+              RECORDS
+            </h2>
+          </div>
+          <a href="portfolio.html" class="mt-4 md:mt-0 bg-cp_palette_primary text-cp_text_tertiary px-6 py-3 font-bold text-sm border-2 border-cp_palette_primary hover:bg-cp_background_paper hover:text-cp_palette_primary"><span>
+            VIEW
+            ALL WORK
+            </span></a>
+        </div>
+        <div data-stagger-group="fade-up" id="i19upq-2" class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <!-- Campaign 1 - Large -->
+          <div data-stagger-item="" class="md:col-span-7 bg-cp_background_paper border-2 border-cp_text_primary hover:border-cp_palette_primary transition-colors">
+            <img alt="FreshBite Campaign" src="https://picsum.photos/seed/brut-c1/800/450" class="w-full h-64 object-cover border-b-2 border-cp_text_primary"/>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
+                  SOCIAL
+                  MEDIA
+                </span>
+                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
+                  FOOD
+                  &amp; BEV
+                </span>
+              </div>
+              <h3 class="text-cp_text_primary font-black text-2xl">
+                FRESHBITE APP LAUNCH
+              </h3>
+              <p class="text-cp_text_secondary mt-2">
+                50K downloads in 30 days. 4.2x ROAS. A campaign that
+                fed
+                the algorithm and won.
+              </p>
+              <div class="mt-4 border-t-2 border-cp_borders_main pt-4 flex gap-6">
+                <div>
+                  <span class="text-cp_palette_primary font-black text-2xl block">
+                    50K
+                  </span>
+                  <span class="text-cp_text_secondary text-xs font-bold">
+                    DOWNLOADS
+                  </span>
+                </div>
+                <div>
+                  <span class="text-cp_palette_primary font-black text-2xl block">
+                    4.2x
+                  </span>
+                  <span class="text-cp_text_secondary text-xs font-bold">
+                    ROAS
+                  </span>
+                </div>
+                <div>
+                  <span class="text-cp_palette_primary font-black text-2xl block">
+                    -45%
+                  </span>
+                  <span class="text-cp_text_secondary text-xs font-bold">
+                    BELOW CPA
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Campaign 2 - Small -->
+          <div data-stagger-item="" class="md:col-span-5 bg-cp_palette_primary border-2 border-cp_palette_primary">
+            <img alt="LuxeStyle Campaign" src="https://picsum.photos/seed/brut-c2/600/450" class="w-full h-64 object-cover border-b-2 border-cp_palette_secondary"/>
+            <div id="i01x44-2" class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
+                  BRANDING
+                </span>
+                <span class="border border-cp_text_tertiary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
+                  FASHION
+                </span>
+              </div>
+              <h3 class="text-cp_text_tertiary font-black text-2xl">
+                LUXESTYLE REBRAND
+              </h3>
+              <p class="text-cp_text_tertiary mt-2 opacity-70">
+                Tripled engagement. 180% sales boost. A
+                brand
+                reborn for the feed.
+              </p>
+              <div class="mt-4 border-t-2 border-white/20 pt-4 flex gap-6">
+                <div>
+                  <span class="text-cp_palette_secondary font-black text-2xl block">
+                    180%
+                  </span>
+                  <span class="text-cp_text_tertiary text-xs font-bold opacity-60">
+                    SALES GROWTH
+                  </span>
+                </div>
+                <div>
+                  <span class="text-cp_palette_secondary font-black text-2xl block">
+                    3x
+                  </span>
+                  <span class="text-cp_text_tertiary text-xs font-bold opacity-60">
+                    ENGAGEMENT
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Campaign 3 - Small -->
+          <div data-stagger-item="" class="md:col-span-5 bg-cp_background_paper border-2 border-cp_text_primary hover:border-cp_palette_primary transition-colors">
+            <img alt="GlowUp Campaign" src="https://picsum.photos/seed/brut-c3/600/350" class="w-full h-48 object-cover border-b-2 border-cp_text_primary"/>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
+                  TIKTOK
+                </span>
+                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
+                  BEAUTY
+                </span>
+              </div>
+              <h3 class="text-cp_text_primary font-black text-xl">
+                GLOWUP SKINCARE LAUNCH
+              </h3>
+              <p class="text-cp_text_secondary mt-2 text-sm">
+                $500K launch month revenue from zero
+                followers.
+              </p>
+              <div class="mt-4 border-t-2 border-cp_borders_main pt-4 flex gap-4">
+                <span class="text-cp_palette_primary font-black text-xl">
+                  $500K
+                </span>
+                <span class="text-cp_text_secondary text-sm font-bold">
+                  REVENUE
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Campaign 4 - Large -->
+          <div data-stagger-item="" class="md:col-span-7 bg-cp_palette_secondary border-2 border-cp_text_primary">
+            <img alt="TechVault Campaign" src="https://picsum.photos/seed/brut-c4/800/350" class="w-full h-48 object-cover border-b-2 border-cp_text_primary"/>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
+                  PAID
+                  ADS
+                </span>
+                <span class="border border-cp_text_primary px-3 py-1 font-bold text-xs">
+                  SAAS
+                </span>
+              </div>
+              <h3 class="text-cp_text_primary font-black text-2xl">
+                TECHVAULT LEAD GENERATION
+              </h3>
+              <p class="text-cp_text_primary mt-2 opacity-80">
+                2,000+ qualified leads at 60% lower CPA than
+                industry average. Performance marketing at its finest.
+              </p>
+              <div class="mt-4 border-t-2 border-cp_text_primary pt-4 flex gap-6">
+                <div>
+                  <span class="text-cp_palette_primary font-black text-2xl block">
+                    2K+
+                  </span>
+                  <span class="text-cp_text_primary text-xs font-bold opacity-70">
+                    LEADS
+                  </span>
+                </div>
+                <div>
+                  <span class="text-cp_palette_primary font-black text-2xl block">
+                    -60%
+                  </span>
+                  <span class="text-cp_text_primary text-xs font-bold opacity-70">
+                    CPA REDUCTION
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Ticker - Brutalist Bar -->
+    <section class="bg-cp_palette_primary py-6 border-y-4 border-cp_palette_secondary">
+      <div class="max-w-7xl mx-auto px-6">
+        <div data-stagger-group="scale-up" class="grid grid-cols-2 lg:grid-cols-4 gap-0">
+          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
+            <span class="text-cp_palette_secondary font-black text-4xl block">
+              350+
+            </span>
+            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
+              CAMPAIGNS
+            </span>
+          </div>
+          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
+            <span class="text-cp_palette_secondary font-black text-4xl block">
+              98%
+            </span>
+            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
+              RETENTION
+            </span>
+          </div>
+          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
+            <span class="text-cp_palette_secondary font-black text-4xl block">
+              $12M+
+            </span>
+            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
+              AD SPEND MANAGED
+            </span>
+          </div>
+          <div data-stagger-item="" class="p-6 text-center">
+            <span class="text-cp_palette_secondary font-black text-4xl block">
+              8+
+            </span>
+            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
+              YEARS
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials - Stacked Bold Quotes -->
+    <section id="ip4cls-2" class="bg-cp_background_paper py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div data-animate="fade-up" class="mb-12">
+          <span class="text-cp_palette_secondary font-black text-sm tracking-widest">
+            // CLIENT LOVE
+          </span>
+          <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary mt-2">
+            WHAT THEY SAY
+          </h2>
+        </div>
+        <div data-stagger-group="fade-up" class="space-y-4">
+          <!-- Quote 1 -->
+          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
+            <img alt="Amanda Reynolds" src="https://picsum.photos/seed/brut-t1/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
+            <div>
+              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
+                "Pulse
+                Media
+                transformed our social media presence overnight. Their ad campaigns brought in more
+                qualified leads in one month than we had all quarter."
+              </p>
+              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
+                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
+                  AMANDA
+                  REYNOLDS
+                </span>
+                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
+                  CMO,
+                  FreshBite
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Quote 2 -->
+          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
+            <img alt="Marcus Webb" src="https://picsum.photos/seed/brut-t2/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
+            <div>
+              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
+                "Their
+                team
+                understood our brand voice from day one. We went from 5K to 50K followers in six months
+                with
+                content that feels authentic and drives real engagement."
+              </p>
+              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
+                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
+                  MARCUS
+                  WEBB
+                </span>
+                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
+                  Founder,
+                  LuxeStyle
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Quote 3 -->
+          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
+            <img alt="Priya Sharma" src="https://picsum.photos/seed/brut-t3/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
+            <div>
+              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
+                "The
+                data-driven approach is refreshing. Every decision backed by real metrics. Our CPA
+                dropped
+                60% within the first quarter of working together."
+              </p>
+              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
+                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
+                  PRIYA
+                  SHARMA
+                </span>
+                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
+                  VP
+                  Marketing, TechVault
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA - Full Width Brutalist Block -->
+    <section class="bg-cp_palette_secondary border-y-4 border-cp_text_primary">
+      <div data-animate="scale-up" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="border-4 border-cp_text_primary p-8 md:p-12 text-center">
+          <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary">
+            READY TO SCALE?
+          </h2>
+          <p class="text-cp_text_primary mt-4 max-w-xl mx-auto font-semibold opacity-80">
+            Book a free strategy
+            session and discover how we can transform your digital presence into a growth engine.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <a href="contact.html" class="bg-cp_palette_primary text-cp_text_tertiary px-8 py-4 font-black border-2 border-cp_palette_primary hover:bg-cp_palette_primary"><span>
+              BOOK
+              FREE STRATEGY CALL
+              </span></a>
+            <a href="services.html" class="border-2 border-cp_text_primary text-cp_text_primary px-8 py-4 font-black hover:bg-cp_palette_primary hover:text-cp_palette_secondary"><span>
+              EXPLORE
+              SERVICES
+              </span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer - Brutalist Grid -->
+  <footer id="i3cpay-2" class="bg-cp_palette_primary border-t-4 border-cp_palette_secondary">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="bg-cp_palette_secondary p-2">
+              <img alt="PULSE Logo" src="https://picsum.photos/seed/pulse-logo-b/32/32" class="h-8 w-8"/>
+            </div>
+            <span class="text-xl font-black text-cp_text_tertiary">
+              PULSE
+            </span>
+          </div>
+          <p class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
+            Data-driven marketing and social
+            media advertising that turns clicks into customers and brands into movements.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
+            NAVIGATION
+          </h4>
+          <div class="flex flex-col gap-2">
+            <a href="index.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Home
+              </span></a>
+            <a href="about.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              About
+              </span></a>
+            <a href="portfolio.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Work
+              </span></a>
+            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Services
+              </span></a>
+            <a href="contact.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Contact
+              </span></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
+            SERVICES
+          </h4>
+          <div class="flex flex-col gap-2">
+            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Social
+              Media Ads
+              </span></a>
+            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Content
+              Strategy
+              </span></a>
+            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Brand
+              Identity
+              </span></a>
+            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
+              Analytics
+              </span></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
+            CONTACT
+          </h4>
+          <div class="flex flex-col gap-3">
+            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
+              456 Creative Blvd, Suite
+              200
+              <br/>
+              Los Angeles, CA 90028
+            </span>
+            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
+              +1 (323) 555-0456
+            </span>
+            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
+              hello@pulsemedia.co
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="border-t-2 border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <span class="text-cp_text_tertiary opacity-40 text-sm font-bold">
+          2024 PULSE MEDIA. ALL RIGHTS
+          RESERVED.
+        </span>
+        <div class="flex gap-3">
+          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="Facebook" src="https://picsum.photos/seed/soc-fb-b/20/20" class="h-5 w-5"/></a>
+          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="Instagram" src="https://picsum.photos/seed/soc-ig-b/20/20" class="h-5 w-5"/></a>
+          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="LinkedIn" src="https://picsum.photos/seed/soc-li-b/20/20" class="h-5 w-5"/></a>
+          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="TikTok" src="https://picsum.photos/seed/soc-tt-b/20/20" class="h-5 w-5"/></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js">
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var menuBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      }
+                              );
+      var animationTypes = {
+        'fade-up': {
+          translateY: [60, 0], opacity: [0, 1] }
+        ,
+        'fade-down': {
+          translateY: [-60, 0], opacity: [0, 1] }
+        ,
+        'fade-left': {
+          translateX: [-60, 0], opacity: [0, 1] }
+        ,
+        'fade-right': {
+          translateX: [60, 0], opacity: [0, 1] }
+        ,
+        'scale-up': {
+          scale: [0.8, 1], opacity: [0, 1] }
+        ,
+        'fade-in': {
+          opacity: [0, 1] }
+      };
+      document.querySelectorAll('[data-animate]').forEach(function (el) {
+        el.style.opacity = '0';
+      }
+                                                         );
+      document.querySelectorAll('[data-stagger-group]').forEach(function (group) {
+        group.querySelectorAll('[data-stagger-item]').forEach(function (item) {
+          item.style.opacity = '0';
+        }
+                                                             );
+      }
+                                                               );
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var type = el.getAttribute('data-animate');
+            var delay = parseInt(el.getAttribute('data-delay') || '0');
+            var config = animationTypes[type] || animationTypes['fade-up'];
+            anime({
+              targets: el,
+              translateY: config.translateY || [0, 0],
+              translateX: config.translateX || [0, 0],
+              scale: config.scale || [1, 1],
+              opacity: config.opacity || [0, 1],
+              duration: 800,
+              easing: 'easeOutExpo',
+              delay: delay
+            }
+                 );
+            observer.unobserve(el);
+          }
+        }
+                       );
+      }
+                                              , {
+        threshold: 0.1 }
+                                             );
+      document.querySelectorAll('[data-animate]').forEach(function (el) {
+        observer.observe(el);
+      }
+                                                         );
+      var staggerObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var group = entry.target;
+            var type = group.getAttribute('data-stagger-group') || 'fade-up';
+            var items = group.querySelectorAll('[data-stagger-item]');
+            var config = animationTypes[type] || animationTypes['fade-up'];
+            anime({
+              targets: items,
+              translateY: config.translateY || [0, 0],
+              translateX: config.translateX || [0, 0],
+              scale: config.scale || [1, 1],
+              opacity: config.opacity || [0, 1],
+              duration: 800,
+              easing: 'easeOutExpo',
+              delay: anime.stagger(120)
+            }
+                 );
+            staggerObserver.unobserve(group);
+          }
+        }
+                       );
+      }
+                                                     , {
+        threshold: 0.1 }
+                                                    );
+      document.querySelectorAll('[data-stagger-group]').forEach(function (group) {
+        staggerObserver.observe(group);
+      }
+                                                               );
+    }
+                             );
+  </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;2d36bc5378d94164ab7b2e728461c839&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+</body>
+<style>* {
+  box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+</style>
+
+</html>
