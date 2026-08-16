@@ -1,780 +1,869 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cp_palette_primary: 'var(--palette-primary)',
-            cp_palette_secondary: 'var(--palette-secondary)',
-            cp_background_default: 'var(--background-default)',
-            cp_background_paper: 'var(--background-paper)',
-            cp_text_primary: 'var(--text-primary)',
-            cp_text_secondary: 'var(--text-secondary)',
-            cp_text_tertiary: 'var(--text-tertiary)',
-            cp_borders_main: 'var(--borders-main)',
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard Advisory Group | Accounting & Financial Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cp_palette_primary: 'var(--palette-primary)',
+              cp_palette_secondary: 'var(--palette-secondary)',
+              cp_background_default: 'var(--background-default)',
+              cp_background_paper: 'var(--background-paper)',
+              cp_text_primary: 'var(--text-primary)',
+              cp_text_secondary: 'var(--text-secondary)',
+              cp_text_tertiary: 'var(--text-tertiary)',
+              cp_borders_main: 'var(--borders-main)',
+            }
           }
         }
       }
-    }
-  </script>
+    </script>
 
-  <style id="dynamic-color-styles">
-    @layer base {
-      :root {
-        --palette-primary: #0F172A;
-        --palette-secondary: #0D9488;
-        --background-default: #F8FAFC;
-        --background-paper: #FFFFFF;
-        --text-primary: #0F172A;
-        --text-secondary: #475569;
-        --text-tertiary: #94A3B8;
-        --borders-main: #E2E8F0;
+    <style id="dynamic-color-styles">
+      @layer base {
+        :root {
+          --palette-primary: #1A1A1A;
+          --palette-secondary: #C8956C;
+          --background-default: #FAFAF8;
+          --background-paper: #FFFFFF;
+          --text-primary: #1A1A1A;
+          --text-secondary: #6B6B6B;
+          --text-tertiary: #A0A0A0;
+          --borders-main: #E8E6E3;
+        }
+
+        :dir(ltr) {
+          font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :dir(rtl) {
+          font-family: 'Changa', system-ui, sans-serif;
+        }
       }
-
-      :dir(ltr) {
-        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      }
-
-      :dir(rtl) {
-        font-family: 'Changa', system-ui, sans-serif;
-      }
-    }
-
-    .bg-cp_palette_primary { background-color: var(--palette-primary); }
-    .bg-cp_palette_secondary { background-color: var(--palette-secondary); }
-    .bg-cp_background_default { background-color: var(--background-default); }
-    .bg-cp_background_paper { background-color: var(--background-paper); }
-
-    .text-cp_text_primary { color: var(--text-primary); }
-    .text-cp_text_secondary { color: var(--text-secondary); }
-    .text-cp_text_tertiary { color: var(--text-tertiary); }
-    .text-cp_palette_primary { color: var(--palette-primary); }
-    .text-cp_palette_secondary { color: var(--palette-secondary); }
-
-    .border-cp_borders_main { border-color: var(--borders-main); }
-    .border-cp_palette_primary { border-color: var(--palette-primary); }
-    .border-cp_palette_secondary { border-color: var(--palette-secondary); }
-
-    .hover\:bg-cp_palette_primary:hover { background-color: var(--palette-primary); }
-    .hover\:bg-cp_palette_secondary:hover { background-color: var(--palette-secondary); }
-    .hover\:bg-cp_background_default:hover { background-color: var(--background-default); }
-    .hover\:bg-cp_background_paper:hover { background-color: var(--background-paper); }
-
-    .hover\:text-cp_text_primary:hover { color: var(--text-primary); }
-    .hover\:text-cp_text_secondary:hover { color: var(--text-secondary); }
-    .hover\:text-cp_text_tertiary:hover { color: var(--text-tertiary); }
-    .hover\:text-cp_palette_primary:hover { color: var(--palette-primary); }
-
-    .hover\:border-cp_palette_primary:hover { border-color: var(--palette-primary); }
-    .hover\:border-cp_palette_secondary:hover { border-color: var(--palette-secondary); }
-    .hover\:border-cp_borders_main:hover { border-color: var(--borders-main); }
-
-    .focus\:border-cp_palette_primary:focus { border-color: var(--palette-primary); }
-  </style>
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
+<body class="bg-cp_background_default text-cp_text_primary antialiased selection:bg-cp_palette_secondary selection:text-white">
 
-<body id="i3uo">
-  <header>
-    <nav class="bg-cp_background_paper border-b-4 border-cp_palette_primary fixed w-full top-0 z-50">
-      <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2"><div class="bg-cp_palette_primary p-2">
-          <img alt="PULSE Logo" src="https://picsum.photos/seed/pulse-logo-b/32/32" class="h-8 w-8"/>
-          </div><span class="text-2xl font-black text-cp_palette_primary tracking-tight">
-          PULSE
-          </span></a>
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html" class="bg-cp_palette_primary text-cp_text_tertiary px-5 py-2 font-bold text-sm hover:bg-cp_palette_secondary hover:text-cp_text_primary"><span>
-            HOME
-            </span></a>
-          <a href="about.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
-            ABOUT
-            </span></a>
-          <a href="portfolio.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
-            WORK
-            </span></a>
-          <a href="services.html" class="text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-transparent hover:border-cp_palette_primary"><span>
-            SERVICES
-            </span></a>
-          <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-5 py-2 font-bold text-sm border-2 border-cp_palette_secondary hover:bg-cp_background_paper"><span>
-            GET
-            A QUOTE
-            </span></a>
-        </div>
-        <button id="mobile-menu-btn-2" class="md:hidden border-2 border-cp_palette_primary p-2"><img alt="Menu" src="https://picsum.photos/seed/menu-b/28/28" class="h-7 w-7"/></button>
-      </div>
-      <div id="mobile-menu-2" class="hidden md:hidden border-t-2 border-cp_palette_primary">
-        <div class="flex flex-col">
-          <a href="index.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main bg-cp_palette_primary text-cp_text_tertiary"><span>
-            HOME
-            </span></a>
-          <a href="about.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
-            ABOUT
-            </span></a>
-          <a href="portfolio.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
-            WORK
-            </span></a>
-          <a href="services.html" class="text-cp_text_primary px-6 py-3 font-bold text-sm border-b border-cp_borders_main"><span>
-            SERVICES
-            </span></a>
-          <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-6 py-3 font-bold text-sm"><span>
-            GET A
-            QUOTE
-            </span></a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <!-- Hero - Split Screen Brutalist -->
-    <section class="pt-20">
-      <div class="grid grid-cols-1 lg:grid-cols-5 min-h-[85vh]">
-        <div data-animate="fade-right" id="im2aj-2" class="lg:col-span-3 bg-cp_palette_primary p-8 md:p-16 flex flex-col justify-center">
-          <div class="border-4 border-cp_palette_secondary p-6 md:p-10">
-            <span class="text-cp_palette_secondary font-black text-sm tracking-widest block mb-4">
-              //
-              AWARD-WINNING AGENCY
-            </span>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-cp_text_tertiary leading-none">
-              WE
-              MAKE
-              <br/>
-              BRANDS
-              <br/>
-              <span class="text-cp_palette_secondary">
-                GO VIRAL
-              </span>
-            </h1>
-            <p class="text-cp_text_tertiary mt-6 text-lg opacity-80 max-w-lg">
-              Data-driven marketing
-              strategies
-              and scroll-stopping social media ads that turn audiences into loyal customers. We don't just
-              run
-              campaigns — we create movements.
-            </p>
-            <div class="flex flex-wrap gap-4 mt-8">
-              <a href="contact.html" class="bg-cp_palette_secondary text-cp_text_primary px-8 py-4 font-black border-2 border-cp_palette_secondary hover:bg-cp_background_paper"><span>
-                START
-                YOUR CAMPAIGN
-                </span></a>
-              <a href="portfolio.html" class="border-2 border-cp_text_tertiary text-cp_text_tertiary px-8 py-4 font-black hover:bg-cp_text_tertiary hover:text-cp_palette_primary"><span>
-                SEE
-                OUR WORK
-                </span></a>
+    <!-- Section 1 — Header -->
+    <header class="sticky top-0 z-50 bg-cp_background_paper/95 backdrop-blur-md border-b border-cp_borders_main">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            <!-- Company Logo -->
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="https://placehold.co/48x48/1A1A1A/C8956C?text=V" alt="Vanguard Advisory Logo" class="w-12 h-12 rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-cp_text_primary leading-tight">VANGUARD</span>
+                    <span class="text-xs tracking-widest text-cp_palette_secondary font-semibold uppercase">Advisory Group</span>
+                </div>
+            </a>
+
+            <!-- Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="/" class="text-sm font-semibold text-cp_palette_secondary transition-colors duration-200">
+                    <span>Home</span>
+                </a>
+                <a href="/financial-services" class="text-sm font-medium text-cp_text_secondary hover:text-cp_text_primary transition-colors duration-200">
+                    <span>Services</span>
+                </a>
+                <a href="/about" class="text-sm font-medium text-cp_text_secondary hover:text-cp_text_primary transition-colors duration-200">
+                    <span>About</span>
+                </a>
+                <a href="/insights" class="text-sm font-medium text-cp_text_secondary hover:text-cp_text_primary transition-colors duration-200">
+                    <span>Insights</span>
+                </a>
+                <a href="/contact" class="text-sm font-medium text-cp_text_secondary hover:text-cp_text_primary transition-colors duration-200">
+                    <span>Contact</span>
+                </a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:flex items-center">
+                <a href="/contact" class="px-6 py-3 rounded-full bg-cp_palette_primary text-white text-sm font-semibold hover:bg-cp_palette_secondary transition-all duration-300 shadow-md hover:shadow-lg">
+                    <span>Book Consultation</span>
+                </a>
             </div>
-          </div>
         </div>
-        <div data-animate="fade-left" id="iawzb-2" class="lg:col-span-2 border-l-0 lg:border-l-4 border-cp_palette_primary relative">
-          <img alt="Marketing Campaign" src="https://picsum.photos/seed/brut-hero/700/900" class="w-full h-full object-cover"/>
-          <div class="absolute bottom-0 left-0 right-0 bg-cp_palette_secondary p-4">
-            <span class="text-cp_text_primary font-black text-sm">
-              350+ CAMPAIGNS LAUNCHED
-            </span>
-          </div>
+    </header>
+
+    <!-- Section 2 — Hero -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-cp_background_default">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-8 hero-text-animate">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cp_borders_main bg-cp_background_paper shadow-xs">
+                        <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=✓" alt="Check Icon" class="w-4 h-4 rounded-full">
+                        <span class="text-xs font-semibold text-cp_palette_secondary tracking-wide uppercase">Premier Corporate Advisors</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-cp_text_primary tracking-tight leading-[1.15]">
+                        <span>Strategic Financial Guidance For Sustainable Business Growth</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-cp_text_secondary max-w-2xl font-normal leading-relaxed">
+                        <span>We deliver tailored accounting, regulatory tax strategies, and CFO-level insights to secure capital, mitigate risk, and maximize profitability for market-leading enterprises.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="/contact" class="px-8 py-4 rounded-xl bg-cp_palette_primary text-white text-base font-semibold text-center hover:bg-cp_palette_secondary transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <span>Schedule Consultation</span>
+                        </a>
+                        <a href="/financial-services" class="px-8 py-4 rounded-xl border border-cp_borders_main bg-cp_background_paper text-cp_text_primary text-base font-semibold text-center hover:bg-cp_background_default transition-all duration-300">
+                            <span>Explore Our Services</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image Component -->
+                <div class="lg:col-span-5 relative hero-image-animate">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-2xl overflow-hidden shadow-2xl border border-cp_borders_main bg-cp_background_paper">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1000&q=80" alt="Financial Advisory Team Strategy Session" class="w-full h-[480px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/60 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-xl bg-cp_background_paper/90 backdrop-blur-md border border-cp_borders_main shadow-lg">
+                            <div class="flex items-center gap-4">
+                                <img src="https://placehold.co/48x48/C8956C/1A1A1A?text=ISO" alt="ISO Certification Seal" class="w-12 h-12 rounded-lg">
+                                <div>
+                                    <h4 class="text-sm font-bold text-cp_text_primary">
+                                        <span>Certified Advisory Experts</span>
+                                    </h4>
+                                    <p class="text-xs text-cp_text_secondary">
+                                        <span>Compliant with International Financial Reporting Standards</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    <!-- Services Strip - Horizontal Blocks -->
-    <section class="bg-cp_background_paper border-y-4 border-cp_palette_primary">
-      <div class="max-w-7xl mx-auto">
-        <div data-stagger-group="scale-up" class="grid grid-cols-2 lg:grid-cols-4">
-          <!-- Block 1 -->
-          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
-            <img alt="Social Ads" src="https://picsum.photos/seed/brut-s1/48/48" class="h-12 w-12 mb-4"/>
-            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
-              <span>
-                SOCIAL
-                MEDIA ADS
-              </span>
-            </h3>
-            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
-              Facebook, Instagram, TikTok, LinkedIn — we conquer every platform.
-            </p>
-          </div>
-          <!-- Block 2 -->
-          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
-            <img alt="Content" src="https://picsum.photos/seed/brut-s2/48/48" class="h-12 w-12 mb-4"/>
-            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
-              <span>
-                CONTENT
-                STRATEGY
-              </span>
-            </h3>
-            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
-              Content plans that align with your brand and drive engagement.
-            </p>
-          </div>
-          <!-- Block 3 -->
-          <div data-stagger-item="" class="p-8 border-r-2 border-cp_palette_primary group hover:bg-cp_palette_primary transition-colors cursor-pointer">
-            <img alt="Branding" src="https://picsum.photos/seed/brut-s3/48/48" class="h-12 w-12 mb-4"/>
-            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
-              <span>
-                BRAND
-                IDENTITY
-              </span>
-            </h3>
-            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
-              Memorable identities that command attention in crowded feeds.
-            </p>
-          </div>
-          <!-- Block 4 -->
-          <div data-stagger-item="" class="p-8 group hover:bg-cp_palette_primary transition-colors cursor-pointer">
-            <img alt="Analytics" src="https://picsum.photos/seed/brut-s4/48/48" class="h-12 w-12 mb-4"/>
-            <h3 class="text-cp_text_primary font-black text-lg group-hover:text-cp_text_tertiary">
-              <span>
-                ANALYTICS
-              </span>
-            </h3>
-            <p class="text-cp_text_secondary text-sm mt-2 group-hover:text-cp_text_tertiary group-hover:opacity-80">
-              Data-driven insights that optimize every dollar of ad spend.
-            </p>
-          </div>
+
+    <!-- Section 3 — Key Statistics -->
+    <section class="py-16 bg-cp_background_paper border-y border-cp_borders_main">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Card 1 -->
+                <div class="flex flex-col items-center text-center p-6 rounded-xl bg-cp_background_default border border-cp_borders_main shadow-xs hover:border-cp_palette_secondary transition-all duration-300">
+                    <img src="https://placehold.co/40x40/1A1A1A/C8956C?text=500+" alt="Clients Icon" class="w-10 h-10 mb-4 rounded-lg">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-cp_text_primary mb-1">500+</span>
+                    <span class="text-sm font-semibold text-cp_text_secondary uppercase tracking-wider">Corporate Clients</span>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex flex-col items-center text-center p-6 rounded-xl bg-cp_background_default border border-cp_borders_main shadow-xs hover:border-cp_palette_secondary transition-all duration-300">
+                    <img src="https://placehold.co/40x40/1A1A1A/C8956C?text=15+" alt="Experience Icon" class="w-10 h-10 mb-4 rounded-lg">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-cp_text_primary mb-1">15+</span>
+                    <span class="text-sm font-semibold text-cp_text_secondary uppercase tracking-wider">Years Experience</span>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex flex-col items-center text-center p-6 rounded-xl bg-cp_background_default border border-cp_borders_main shadow-xs hover:border-cp_palette_secondary transition-all duration-300">
+                    <img src="https://placehold.co/40x40/1A1A1A/C8956C?text=98%" alt="Retention Icon" class="w-10 h-10 mb-4 rounded-lg">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-cp_text_primary mb-1">98%</span>
+                    <span class="text-sm font-semibold text-cp_text_secondary uppercase tracking-wider">Client Retention</span>
+                </div>
+                <!-- Card 4 -->
+                <div class="flex flex-col items-center text-center p-6 rounded-xl bg-cp_background_default border border-cp_borders_main shadow-xs hover:border-cp_palette_secondary transition-all duration-300">
+                    <img src="https://placehold.co/40x40/1A1A1A/C8956C?text=$250M" alt="Capital Managed Icon" class="w-10 h-10 mb-4 rounded-lg">
+                    <span class="text-3xl sm:text-4xl font-extrabold text-cp_text_primary mb-1">$250M+</span>
+                    <span class="text-sm font-semibold text-cp_text_secondary uppercase tracking-wider">Assets Advised</span>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    <!-- Campaign Results - Asymmetric Grid -->
-    <section id="idezlh-2" class="bg-cp_background_default py-20">
-      <div class="max-w-7xl mx-auto px-6">
-        <div data-animate="fade-up" class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-          <div>
-            <span class="text-cp_palette_secondary font-black text-sm tracking-widest">
-              // FEATURED
-              WORK
-            </span>
-            <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary mt-2">
-              CAMPAIGNS THAT
-              <br/>
-              BREAK
-              RECORDS
-            </h2>
-          </div>
-          <a href="portfolio.html" class="mt-4 md:mt-0 bg-cp_palette_primary text-cp_text_tertiary px-6 py-3 font-bold text-sm border-2 border-cp_palette_primary hover:bg-cp_background_paper hover:text-cp_palette_primary"><span>
-            VIEW
-            ALL WORK
-            </span></a>
+
+    <!-- Section 4 — Services -->
+    <section class="py-24 bg-cp_background_default">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-cp_text_primary tracking-tight">
+                    <span>Comprehensive Financial & Advisory Solutions</span>
+                </h2>
+                <p class="text-base text-cp_text_secondary">
+                    <span>Designed for established corporations, high-growth startups, and middle-market enterprises seeking rigorous governance and financial performance.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=ACC" alt="Accounting Services" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>Accounting Services</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>Full-cycle bookkeeping, general ledger maintenance, monthly closing, and scalable accounting infrastructure setup tailored to your industry operations.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=TAX" alt="Tax Planning & Advisory" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>Tax Planning & Advisory</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>Proactive corporate tax optimization, international cross-border compliance, transfer pricing, and strategic risk reduction.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=AUD" alt="Audit & Assurance" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>Audit & Assurance</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>Independent financial statement audits, internal control reviews, and forensic accounting to satisfy lenders, board members, and investors.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=REP" alt="Financial Reporting" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>Financial Reporting</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>Custom executive dashboards, key performance indicators tracking, and board-ready reporting aligned strictly with GAAP and IFRS framework.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=CFO" alt="Fractional CFO Advisory" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>CFO Advisory</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>High-level strategic financial leadership, cash flow modeling, capital allocation strategies, and fundraising preparation without full-time overhead.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="group bg-cp_background_paper rounded-2xl p-8 border border-cp_borders_main shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cp_background_default flex items-center justify-center mb-6 border border-cp_borders_main group-hover:bg-cp_palette_primary transition-colors duration-300">
+                            <img src="https://placehold.co/56x56/1A1A1A/C8956C?text=BUS" alt="Business Consulting" class="w-10 h-10 rounded-lg">
+                        </div>
+                        <h3 class="text-xl font-bold text-cp_text_primary mb-3">
+                            <span>Business Consulting</span>
+                        </h3>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed mb-6">
+                            <span>Mergers and acquisitions due diligence, operational restructuring, corporate governance refinement, and valuation services.</span>
+                        </p>
+                    </div>
+                    <a href="/financial-services" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                        <span>Learn More</span>
+                        <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div data-stagger-group="fade-up" id="i19upq-2" class="grid grid-cols-1 md:grid-cols-12 gap-4">
-          <!-- Campaign 1 - Large -->
-          <div data-stagger-item="" class="md:col-span-7 bg-cp_background_paper border-2 border-cp_text_primary hover:border-cp_palette_primary transition-colors">
-            <img alt="FreshBite Campaign" src="https://picsum.photos/seed/brut-c1/800/450" class="w-full h-64 object-cover border-b-2 border-cp_text_primary"/>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
-                  SOCIAL
-                  MEDIA
-                </span>
-                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
-                  FOOD
-                  &amp; BEV
-                </span>
-              </div>
-              <h3 class="text-cp_text_primary font-black text-2xl">
-                FRESHBITE APP LAUNCH
-              </h3>
-              <p class="text-cp_text_secondary mt-2">
-                50K downloads in 30 days. 4.2x ROAS. A campaign that
-                fed
-                the algorithm and won.
-              </p>
-              <div class="mt-4 border-t-2 border-cp_borders_main pt-4 flex gap-6">
-                <div>
-                  <span class="text-cp_palette_primary font-black text-2xl block">
-                    50K
-                  </span>
-                  <span class="text-cp_text_secondary text-xs font-bold">
-                    DOWNLOADS
-                  </span>
-                </div>
-                <div>
-                  <span class="text-cp_palette_primary font-black text-2xl block">
-                    4.2x
-                  </span>
-                  <span class="text-cp_text_secondary text-xs font-bold">
-                    ROAS
-                  </span>
-                </div>
-                <div>
-                  <span class="text-cp_palette_primary font-black text-2xl block">
-                    -45%
-                  </span>
-                  <span class="text-cp_text_secondary text-xs font-bold">
-                    BELOW CPA
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Campaign 2 - Small -->
-          <div data-stagger-item="" class="md:col-span-5 bg-cp_palette_primary border-2 border-cp_palette_primary">
-            <img alt="LuxeStyle Campaign" src="https://picsum.photos/seed/brut-c2/600/450" class="w-full h-64 object-cover border-b-2 border-cp_palette_secondary"/>
-            <div id="i01x44-2" class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
-                  BRANDING
-                </span>
-                <span class="border border-cp_text_tertiary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
-                  FASHION
-                </span>
-              </div>
-              <h3 class="text-cp_text_tertiary font-black text-2xl">
-                LUXESTYLE REBRAND
-              </h3>
-              <p class="text-cp_text_tertiary mt-2 opacity-70">
-                Tripled engagement. 180% sales boost. A
-                brand
-                reborn for the feed.
-              </p>
-              <div class="mt-4 border-t-2 border-white/20 pt-4 flex gap-6">
-                <div>
-                  <span class="text-cp_palette_secondary font-black text-2xl block">
-                    180%
-                  </span>
-                  <span class="text-cp_text_tertiary text-xs font-bold opacity-60">
-                    SALES GROWTH
-                  </span>
-                </div>
-                <div>
-                  <span class="text-cp_palette_secondary font-black text-2xl block">
-                    3x
-                  </span>
-                  <span class="text-cp_text_tertiary text-xs font-bold opacity-60">
-                    ENGAGEMENT
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Campaign 3 - Small -->
-          <div data-stagger-item="" class="md:col-span-5 bg-cp_background_paper border-2 border-cp_text_primary hover:border-cp_palette_primary transition-colors">
-            <img alt="GlowUp Campaign" src="https://picsum.photos/seed/brut-c3/600/350" class="w-full h-48 object-cover border-b-2 border-cp_text_primary"/>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
-                  TIKTOK
-                </span>
-                <span class="bg-cp_palette_secondary text-cp_text_primary px-3 py-1 font-bold text-xs">
-                  BEAUTY
-                </span>
-              </div>
-              <h3 class="text-cp_text_primary font-black text-xl">
-                GLOWUP SKINCARE LAUNCH
-              </h3>
-              <p class="text-cp_text_secondary mt-2 text-sm">
-                $500K launch month revenue from zero
-                followers.
-              </p>
-              <div class="mt-4 border-t-2 border-cp_borders_main pt-4 flex gap-4">
-                <span class="text-cp_palette_primary font-black text-xl">
-                  $500K
-                </span>
-                <span class="text-cp_text_secondary text-sm font-bold">
-                  REVENUE
-                </span>
-              </div>
-            </div>
-          </div>
-          <!-- Campaign 4 - Large -->
-          <div data-stagger-item="" class="md:col-span-7 bg-cp_palette_secondary border-2 border-cp_text_primary">
-            <img alt="TechVault Campaign" src="https://picsum.photos/seed/brut-c4/800/350" class="w-full h-48 object-cover border-b-2 border-cp_text_primary"/>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="bg-cp_palette_primary text-cp_text_tertiary px-3 py-1 font-bold text-xs">
-                  PAID
-                  ADS
-                </span>
-                <span class="border border-cp_text_primary px-3 py-1 font-bold text-xs">
-                  SAAS
-                </span>
-              </div>
-              <h3 class="text-cp_text_primary font-black text-2xl">
-                TECHVAULT LEAD GENERATION
-              </h3>
-              <p class="text-cp_text_primary mt-2 opacity-80">
-                2,000+ qualified leads at 60% lower CPA than
-                industry average. Performance marketing at its finest.
-              </p>
-              <div class="mt-4 border-t-2 border-cp_text_primary pt-4 flex gap-6">
-                <div>
-                  <span class="text-cp_palette_primary font-black text-2xl block">
-                    2K+
-                  </span>
-                  <span class="text-cp_text_primary text-xs font-bold opacity-70">
-                    LEADS
-                  </span>
-                </div>
-                <div>
-                  <span class="text-cp_palette_primary font-black text-2xl block">
-                    -60%
-                  </span>
-                  <span class="text-cp_text_primary text-xs font-bold opacity-70">
-                    CPA REDUCTION
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- Stats Ticker - Brutalist Bar -->
-    <section class="bg-cp_palette_primary py-6 border-y-4 border-cp_palette_secondary">
-      <div class="max-w-7xl mx-auto px-6">
-        <div data-stagger-group="scale-up" class="grid grid-cols-2 lg:grid-cols-4 gap-0">
-          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
-            <span class="text-cp_palette_secondary font-black text-4xl block">
-              350+
-            </span>
-            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
-              CAMPAIGNS
-            </span>
-          </div>
-          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
-            <span class="text-cp_palette_secondary font-black text-4xl block">
-              98%
-            </span>
-            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
-              RETENTION
-            </span>
-          </div>
-          <div data-stagger-item="" class="p-6 border-r-2 border-white/20 text-center">
-            <span class="text-cp_palette_secondary font-black text-4xl block">
-              $12M+
-            </span>
-            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
-              AD SPEND MANAGED
-            </span>
-          </div>
-          <div data-stagger-item="" class="p-6 text-center">
-            <span class="text-cp_palette_secondary font-black text-4xl block">
-              8+
-            </span>
-            <span class="text-cp_text_tertiary font-bold text-xs tracking-widest">
-              YEARS
-            </span>
-          </div>
+
+    <!-- Section 5 — Why Choose Us -->
+    <section class="py-24 bg-cp_background_paper border-y border-cp_borders_main">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- Left Image Column -->
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-2xl overflow-hidden border border-cp_borders_main shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Modern Financial Headquarters Tower" class="w-full h-[520px] object-cover">
+                        <div class="absolute inset-0 bg-cp_palette_primary/20"></div>
+                        <div class="absolute bottom-8 left-8 right-8 p-6 bg-cp_background_paper/95 backdrop-blur-md rounded-xl border border-cp_borders_main shadow-xl">
+                            <p class="text-base font-semibold text-cp_text_primary italic">
+                                <span>"Vanguard transformed our financial reporting framework, allowing us to successfully raise our Series B round with full investor confidence."</span>
+                            </p>
+                            <span class="block mt-3 text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">— Managing Director, FinTech Global</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature Column -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Unrivaled Expertise</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-cp_text_primary tracking-tight mt-2">
+                            <span>Why Leading Corporations Partner With Vanguard</span>
+                        </h2>
+                        <p class="text-base text-cp_text_secondary mt-4 leading-relaxed">
+                            <span>We pair institutional precision with boutique attention, providing senior advisory leadership at every phase of your corporate expansion lifecycle.</span>
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- Feature 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-cp_background_default border border-cp_borders_main shrink-0">
+                                <img src="https://placehold.co/24x24/C8956C/FFFFFF?text=✓" alt="Check Mark" class="w-6 h-6 rounded-md">
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-cp_text_primary">
+                                    <span>Certified Industry Experts</span>
+                                </h4>
+                                <p class="text-sm text-cp_text_secondary">
+                                    <span>Our team comprises seasoned CPAs, chartered financial analysts, and former Fortune 500 CFOs.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-cp_background_default border border-cp_borders_main shrink-0">
+                                <img src="https://placehold.co/24x24/C8956C/FFFFFF?text=✓" alt="Check Mark" class="w-6 h-6 rounded-md">
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-cp_text_primary">
+                                    <span>Tailored Strategic Solutions</span>
+                                </h4>
+                                <p class="text-sm text-cp_text_secondary">
+                                    <span>No cookie-cutter templates. Every framework is built around your specific risk appetite and industry structure.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-cp_background_default border border-cp_borders_main shrink-0">
+                                <img src="https://placehold.co/24x24/C8956C/FFFFFF?text=✓" alt="Check Mark" class="w-6 h-6 rounded-md">
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-cp_text_primary">
+                                    <span>Transparent & Timely Reporting</span>
+                                </h4>
+                                <p class="text-sm text-cp_text_secondary">
+                                    <span>Continuous financial visibility through real-time dynamic reporting portals and predictable communication schedules.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-cp_background_default border border-cp_borders_main shrink-0">
+                                <img src="https://placehold.co/24x24/C8956C/FFFFFF?text=✓" alt="Check Mark" class="w-6 h-6 rounded-md">
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-cp_text_primary">
+                                    <span>Strict Regulatory Compliance</span>
+                                </h4>
+                                <p class="text-sm text-cp_text_secondary">
+                                    <span>Continuous monitoring of evolving tax legislation and international auditing requirements to ensure zero risk exposure.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-lg bg-cp_background_default border border-cp_borders_main shrink-0">
+                                <img src="https://placehold.co/24x24/C8956C/FFFFFF?text=✓" alt="Check Mark" class="w-6 h-6 rounded-md">
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-cp_text_primary">
+                                    <span>Strategic Growth Focus</span>
+                                </h4>
+                                <p class="text-sm text-cp_text_secondary">
+                                    <span>Beyond compliance, we actively pinpoint margin expansion opportunities and working capital efficiencies.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    <!-- Testimonials - Stacked Bold Quotes -->
-    <section id="ip4cls-2" class="bg-cp_background_paper py-20">
-      <div class="max-w-7xl mx-auto px-6">
-        <div data-animate="fade-up" class="mb-12">
-          <span class="text-cp_palette_secondary font-black text-sm tracking-widest">
-            // CLIENT LOVE
-          </span>
-          <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary mt-2">
-            WHAT THEY SAY
-          </h2>
+
+    <!-- Section 6 — Industries We Serve -->
+    <section class="py-24 bg-cp_background_default">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Industry Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-cp_text_primary tracking-tight">
+                    <span>Specialized Advisory Across Key Sectors</span>
+                </h2>
+                <p class="text-base text-cp_text_secondary">
+                    <span>Deep technical domain experience across major economic verticals ensures relevant, effective tax and accounting models.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Industry 1 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Manufacturing Industry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Manufacturing & Logistics</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Industry 2 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Healthcare Sector" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Healthcare & Life Sciences</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Industry 3 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Technology & Software" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Technology & SaaS</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Industry 4 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Retail & Consumer Goods" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Retail & E-Commerce</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Industry 5 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Construction & Real Estate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Construction & Real Estate</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Industry 6 -->
+                <div class="relative group rounded-2xl overflow-hidden border border-cp_borders_main bg-cp_background_paper shadow-sm hover:shadow-xl transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Professional Services" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cp_palette_primary/90 via-cp_palette_primary/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold text-cp_palette_secondary uppercase tracking-widest">Sector</span>
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            <span>Professional Services</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div data-stagger-group="fade-up" class="space-y-4">
-          <!-- Quote 1 -->
-          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
-            <img alt="Amanda Reynolds" src="https://picsum.photos/seed/brut-t1/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
-            <div>
-              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
-                "Pulse
-                Media
-                transformed our social media presence overnight. Their ad campaigns brought in more
-                qualified leads in one month than we had all quarter."
-              </p>
-              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
-                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
-                  AMANDA
-                  REYNOLDS
-                </span>
-                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
-                  CMO,
-                  FreshBite
-                </span>
-              </div>
-            </div>
-          </div>
-          <!-- Quote 2 -->
-          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
-            <img alt="Marcus Webb" src="https://picsum.photos/seed/brut-t2/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
-            <div>
-              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
-                "Their
-                team
-                understood our brand voice from day one. We went from 5K to 50K followers in six months
-                with
-                content that feels authentic and drives real engagement."
-              </p>
-              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
-                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
-                  MARCUS
-                  WEBB
-                </span>
-                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
-                  Founder,
-                  LuxeStyle
-                </span>
-              </div>
-            </div>
-          </div>
-          <!-- Quote 3 -->
-          <div data-stagger-item="" class="border-2 border-cp_text_primary p-8 flex flex-col md:flex-row gap-6 items-start hover:bg-cp_palette_primary group transition-colors">
-            <img alt="Priya Sharma" src="https://picsum.photos/seed/brut-t3/80/80" class="h-20 w-20 border-2 border-cp_text_primary group-hover:border-cp_palette_secondary"/>
-            <div>
-              <p class="text-cp_text_primary font-bold text-xl group-hover:text-cp_text_tertiary">
-                "The
-                data-driven approach is refreshing. Every decision backed by real metrics. Our CPA
-                dropped
-                60% within the first quarter of working together."
-              </p>
-              <div class="mt-4 border-t-2 border-cp_borders_main group-hover:border-white/20 pt-4">
-                <span class="text-cp_palette_primary font-black group-hover:text-cp_palette_secondary">
-                  PRIYA
-                  SHARMA
-                </span>
-                <span class="text-cp_text_secondary text-sm block group-hover:text-cp_text_tertiary group-hover:opacity-70">
-                  VP
-                  Marketing, TechVault
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- CTA - Full Width Brutalist Block -->
-    <section class="bg-cp_palette_secondary border-y-4 border-cp_text_primary">
-      <div data-animate="scale-up" class="max-w-7xl mx-auto px-6 py-16">
-        <div class="border-4 border-cp_text_primary p-8 md:p-12 text-center">
-          <h2 class="text-4xl md:text-5xl font-black text-cp_text_primary">
-            READY TO SCALE?
-          </h2>
-          <p class="text-cp_text_primary mt-4 max-w-xl mx-auto font-semibold opacity-80">
-            Book a free strategy
-            session and discover how we can transform your digital presence into a growth engine.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="contact.html" class="bg-cp_palette_primary text-cp_text_tertiary px-8 py-4 font-black border-2 border-cp_palette_primary hover:bg-cp_palette_primary"><span>
-              BOOK
-              FREE STRATEGY CALL
-              </span></a>
-            <a href="services.html" class="border-2 border-cp_text_primary text-cp_text_primary px-8 py-4 font-black hover:bg-cp_palette_primary hover:text-cp_palette_secondary"><span>
-              EXPLORE
-              SERVICES
-              </span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Footer - Brutalist Grid -->
-  <footer id="i3cpay-2" class="bg-cp_palette_primary border-t-4 border-cp_palette_secondary">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="bg-cp_palette_secondary p-2">
-              <img alt="PULSE Logo" src="https://picsum.photos/seed/pulse-logo-b/32/32" class="h-8 w-8"/>
+
+    <!-- Section 7 — Client Testimonials -->
+    <section class="py-24 bg-cp_background_paper border-y border-cp_borders_main">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Client Feedback</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-cp_text_primary tracking-tight">
+                    <span>Trusted By Executive Leadership</span>
+                </h2>
+                <p class="text-base text-cp_text_secondary">
+                    <span>Discover how our custom advisory strategies drive real measurable business outcomes.</span>
+                </p>
             </div>
-            <span class="text-xl font-black text-cp_text_tertiary">
-              PULSE
-            </span>
-          </div>
-          <p class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
-            Data-driven marketing and social
-            media advertising that turns clicks into customers and brands into movements.
-          </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-cp_background_default rounded-2xl p-8 border border-cp_borders_main flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex gap-1">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                        </div>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed italic">
+                            <span>"Vanguard's tax restructuring strategy reduced our corporate liabilities significantly while keeping us completely compliant. Their audit readiness team is second to none."</span>
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-cp_borders_main">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Elena Rostova" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-cp_text_primary">
+                                <span>Elena Rostova</span>
+                            </h4>
+                            <p class="text-xs text-cp_text_tertiary">
+                                <span>CFO, Apex Global Logistics</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-cp_background_default rounded-2xl p-8 border border-cp_borders_main flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex gap-1">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                        </div>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed italic">
+                            <span>"Having Vanguard handle our CFO advisory services allowed our executive team to focus entirely on product scaling while keeping financial governance rock solid."</span>
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-cp_borders_main">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Marcus Thorne" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-cp_text_primary">
+                                <span>Marcus Thorne</span>
+                            </h4>
+                            <p class="text-xs text-cp_text_tertiary">
+                                <span>CEO, Enterprise Cloud Systems</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-cp_background_default rounded-2xl p-8 border border-cp_borders_main flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex gap-1">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                            <img src="https://placehold.co/16x16/C8956C/FFFFFF?text=★" alt="Star Rating" class="w-4 h-4 rounded-full">
+                        </div>
+                        <p class="text-sm text-cp_text_secondary leading-relaxed italic">
+                            <span>"Their M&A due diligence team uncovered crucial working capital adjustments during our acquisition process. Absolutely essential partners."</span>
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6 mt-6 border-t border-cp_borders_main">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="text-sm font-bold text-cp_text_primary">
+                                <span>Sarah Jenkins</span>
+                            </h4>
+                            <p class="text-xs text-cp_text_tertiary">
+                                <span>Managing Director, Vantage Real Estate</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
-            NAVIGATION
-          </h4>
-          <div class="flex flex-col gap-2">
-            <a href="index.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Home
-              </span></a>
-            <a href="about.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              About
-              </span></a>
-            <a href="portfolio.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Work
-              </span></a>
-            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Services
-              </span></a>
-            <a href="contact.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Contact
-              </span></a>
-          </div>
+    </section>
+
+    <!-- Section 8 — Insights Preview -->
+    <section class="py-24 bg-cp_background_default">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="space-y-4 max-w-2xl">
+                    <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Thought Leadership</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-cp_text_primary tracking-tight">
+                        <span>Latest Financial Insights & Analysis</span>
+                    </h2>
+                    <p class="text-base text-cp_text_secondary">
+                        <span>Expert perspectives on regulatory changes, corporate tax strategies, and capital allocation frameworks.</span>
+                    </p>
+                </div>
+                <a href="/insights" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cp_borders_main bg-cp_background_paper text-cp_text_primary font-semibold text-sm hover:bg-cp_background_default transition-colors shrink-0">
+                    <span>View All Articles</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Insight Card 1 -->
+                <article class="bg-cp_background_paper rounded-2xl overflow-hidden border border-cp_borders_main shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Corporate Tax Laws" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-cp_palette_primary text-white text-xs font-bold">
+                                <span>Tax Advisory</span>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-cp_text_tertiary">October 14, 2026</span>
+                            <h3 class="text-lg font-bold text-cp_text_primary leading-snug">
+                                <span>Navigating 2027 Corporate Tax Reforms: A Strategic Guide</span>
+                            </h3>
+                            <p class="text-sm text-cp_text_secondary leading-relaxed">
+                                <span>Key regulatory updates taking effect next fiscal year and how enterprise finance teams should adapt early.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="/insights" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                            <span>Read Article</span>
+                            <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight Card 2 -->
+                <article class="bg-cp_background_paper rounded-2xl overflow-hidden border border-cp_borders_main shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="CFO Dashboard Analysis" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-cp_palette_primary text-white text-xs font-bold">
+                                <span>Corporate Finance</span>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-cp_text_tertiary">November 02, 2026</span>
+                            <h3 class="text-lg font-bold text-cp_text_primary leading-snug">
+                                <span>Optimizing Working Capital in High Inflation Environments</span>
+                            </h3>
+                            <p class="text-sm text-cp_text_secondary leading-relaxed">
+                                <span>Practical liquidity management tactics to preserve cash flow velocity and buffer balance sheet risk.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="/insights" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                            <span>Read Article</span>
+                            <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Insight Card 3 -->
+                <article class="bg-cp_background_paper rounded-2xl overflow-hidden border border-cp_borders_main shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Audit & Governance" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-cp_palette_primary text-white text-xs font-bold">
+                                <span>M&A Advisory</span>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-xs text-cp_text_tertiary">December 18, 2026</span>
+                            <h3 class="text-lg font-bold text-cp_text_primary leading-snug">
+                                <span>Financial Due Diligence Checklist for Mid-Market Acquisitions</span>
+                            </h3>
+                            <p class="text-sm text-cp_text_secondary leading-relaxed">
+                                <span>Essential steps buyers must execute to verify EBITDA quality and unearth hidden financial liabilities.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="/insights" class="inline-flex items-center gap-2 text-xs font-bold text-cp_palette_secondary uppercase tracking-wider hover:text-cp_text_primary transition-colors">
+                            <span>Read Article</span>
+                            <img src="https://placehold.co/12x12/1A1A1A/FFFFFF?text->" alt="Arrow" class="w-3 h-3 rounded-full">
+                        </a>
+                    </div>
+                </article>
+            </div>
         </div>
-        <div>
-          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
-            SERVICES
-          </h4>
-          <div class="flex flex-col gap-2">
-            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Social
-              Media Ads
-              </span></a>
-            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Content
-              Strategy
-              </span></a>
-            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Brand
-              Identity
-              </span></a>
-            <a href="services.html" class="text-cp_text_tertiary opacity-60 hover:opacity-100 font-semibold text-sm"><span>
-              Analytics
-              </span></a>
-          </div>
+    </section>
+
+    <!-- Section 9 — Call To Action -->
+    <section class="py-20 bg-cp_palette_primary text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <span class="text-xs font-bold text-cp_palette_secondary uppercase tracking-widest">Take The Next Step</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                    <span>Let's Build a Stronger Financial Future Together</span>
+                </h2>
+                <p class="text-lg text-cp_text_tertiary leading-relaxed">
+                    <span>Partner with trusted advisors who understand the complexities of corporate growth, tax optimization, and capital governance.</span>
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="/contact" class="w-full sm:w-auto px-10 py-5 rounded-xl bg-cp_palette_secondary text-white font-bold text-base hover:bg-white hover:text-cp_palette_primary transition-all duration-300 shadow-xl">
+                        <span>Schedule Your Strategy Session</span>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div>
-          <h4 class="text-cp_palette_secondary font-black text-sm mb-4 tracking-widest">
-            CONTACT
-          </h4>
-          <div class="flex flex-col gap-3">
-            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
-              456 Creative Blvd, Suite
-              200
-              <br/>
-              Los Angeles, CA 90028
-            </span>
-            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
-              +1 (323) 555-0456
-            </span>
-            <span class="text-cp_text_tertiary opacity-60 font-semibold text-sm">
-              hello@pulsemedia.co
-            </span>
-          </div>
+    </section>
+
+    <!-- Section 10 — Footer -->
+    <footer class="bg-cp_background_paper border-t border-cp_borders_main pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-cp_borders_main">
+                <!-- Company Info -->
+                <div class="lg:col-span-2 space-y-6">
+                    <a href="/" class="flex items-center gap-3">
+                        <img src="https://placehold.co/40x40/1A1A1A/C8956C?text=V" alt="Vanguard Advisory Logo" class="w-10 h-10 rounded-lg">
+                        <span class="text-lg font-bold tracking-tight text-cp_text_primary">VANGUARD ADVISORY</span>
+                    </a>
+                    <p class="text-sm text-cp_text_secondary max-w-sm leading-relaxed">
+                        <span>Premier accounting, audit, tax advisory, and fractional CFO services for corporate institutions and emerging high-growth businesses worldwide.</span>
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-bold text-cp_text_primary uppercase tracking-wider">
+                        <span>Quick Links</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/financial-services" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>About Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/insights" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Insights</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-bold text-cp_text_primary uppercase tracking-wider">
+                        <span>Services</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/financial-services" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Tax Planning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/financial-services" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Audit & Assurance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/financial-services" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>CFO Advisory</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/financial-services" class="text-sm text-cp_text_secondary hover:text-cp_palette_secondary transition-colors">
+                                <span>Financial Reporting</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-bold text-cp_text_primary uppercase tracking-wider">
+                        <span>Contact Us</span>
+                    </h4>
+                    <div class="space-y-3 text-sm text-cp_text_secondary">
+                        <div class="flex items-start gap-3">
+                            <img src="https://placehold.co/18x18/1A1A1A/FFFFFF?text=A" alt="Address Icon" class="w-4 h-4 rounded-full mt-1">
+                            <span>100 Financial Plaza, Suite 2400, New York, NY 10005</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://placehold.co/18x18/1A1A1A/FFFFFF?text=P" alt="Phone Icon" class="w-4 h-4 rounded-full">
+                            <span>+1 (800) 555-8294</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://placehold.co/18x18/1A1A1A/FFFFFF?text=E" alt="Email Icon" class="w-4 h-4 rounded-full">
+                            <span>advisory@vanguardgroup.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cp_text_tertiary">
+                <p>
+                    <span>© 2026 Vanguard Advisory Group. All rights reserved.</span>
+                </p>
+                <div class="flex items-center space-x-6">
+                    <a href="/privacy" class="hover:text-cp_text_secondary transition-colors">
+                        <span>Privacy Policy</span>
+                    </a>
+                    <a href="/terms" class="hover:text-cp_text_secondary transition-colors">
+                        <span>Terms of Service</span>
+                    </a>
+                    <a href="/compliance" class="hover:text-cp_text_secondary transition-colors">
+                        <span>Regulatory Compliance</span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="border-t-2 border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span class="text-cp_text_tertiary opacity-40 text-sm font-bold">
-          2024 PULSE MEDIA. ALL RIGHTS
-          RESERVED.
-        </span>
-        <div class="flex gap-3">
-          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="Facebook" src="https://picsum.photos/seed/soc-fb-b/20/20" class="h-5 w-5"/></a>
-          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="Instagram" src="https://picsum.photos/seed/soc-ig-b/20/20" class="h-5 w-5"/></a>
-          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="LinkedIn" src="https://picsum.photos/seed/soc-li-b/20/20" class="h-5 w-5"/></a>
-          <a href="#" class="border-2 border-white/30 p-2 hover:border-cp_palette_secondary hover:bg-cp_palette_secondary"><img alt="TikTok" src="https://picsum.photos/seed/soc-tt-b/20/20" class="h-5 w-5"/></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js">
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var menuBtn = document.getElementById('mobile-menu-btn');
-      var mobileMenu = document.getElementById('mobile-menu');
-      menuBtn.addEventListener('click', function () {
-        mobileMenu.classList.toggle('hidden');
-      }
-                              );
-      var animationTypes = {
-        'fade-up': {
-          translateY: [60, 0], opacity: [0, 1] }
-        ,
-        'fade-down': {
-          translateY: [-60, 0], opacity: [0, 1] }
-        ,
-        'fade-left': {
-          translateX: [-60, 0], opacity: [0, 1] }
-        ,
-        'fade-right': {
-          translateX: [60, 0], opacity: [0, 1] }
-        ,
-        'scale-up': {
-          scale: [0.8, 1], opacity: [0, 1] }
-        ,
-        'fade-in': {
-          opacity: [0, 1] }
-      };
-      document.querySelectorAll('[data-animate]').forEach(function (el) {
-        el.style.opacity = '0';
-      }
-                                                         );
-      document.querySelectorAll('[data-stagger-group]').forEach(function (group) {
-        group.querySelectorAll('[data-stagger-item]').forEach(function (item) {
-          item.style.opacity = '0';
-        }
-                                                             );
-      }
-                                                               );
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var el = entry.target;
-            var type = el.getAttribute('data-animate');
-            var delay = parseInt(el.getAttribute('data-delay') || '0');
-            var config = animationTypes[type] || animationTypes['fade-up'];
+    </footer>
+
+    <!-- Anime.js Animations Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Subtle stagger entry for Hero Text
             anime({
-              targets: el,
-              translateY: config.translateY || [0, 0],
-              translateX: config.translateX || [0, 0],
-              scale: config.scale || [1, 1],
-              opacity: config.opacity || [0, 1],
-              duration: 800,
-              easing: 'easeOutExpo',
-              delay: delay
-            }
-                 );
-            observer.unobserve(el);
-          }
-        }
-                       );
-      }
-                                              , {
-        threshold: 0.1 }
-                                             );
-      document.querySelectorAll('[data-animate]').forEach(function (el) {
-        observer.observe(el);
-      }
-                                                         );
-      var staggerObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var group = entry.target;
-            var type = group.getAttribute('data-stagger-group') || 'fade-up';
-            var items = group.querySelectorAll('[data-stagger-item]');
-            var config = animationTypes[type] || animationTypes['fade-up'];
+                targets: '.hero-text-animate > *',
+                translateY: [15, 0],
+                duration: 900,
+                easing: 'easeOutCubic',
+                delay: anime.stagger(120)
+            });
+
+            // Gentle slide for Hero Image
             anime({
-              targets: items,
-              translateY: config.translateY || [0, 0],
-              translateX: config.translateX || [0, 0],
-              scale: config.scale || [1, 1],
-              opacity: config.opacity || [0, 1],
-              duration: 800,
-              easing: 'easeOutExpo',
-              delay: anime.stagger(120)
-            }
-                 );
-            staggerObserver.unobserve(group);
-          }
-        }
-                       );
-      }
-                                                     , {
-        threshold: 0.1 }
-                                                    );
-      document.querySelectorAll('[data-stagger-group]').forEach(function (group) {
-        staggerObserver.observe(group);
-      }
-                                                               );
-    }
-                             );
-  </script>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;2d36bc5378d94164ab7b2e728461c839&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+                targets: '.hero-image-animate',
+                translateY: [20, 0],
+                duration: 1000,
+                easing: 'easeOutCubic',
+                delay: 300
+            });
+        });
+    </script>
 </body>
-<style>* {
-  box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-</style>
-
 </html>
